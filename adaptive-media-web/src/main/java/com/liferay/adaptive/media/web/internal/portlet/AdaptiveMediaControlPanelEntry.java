@@ -12,15 +12,23 @@
  * details.
  */
 
-package com.liferay.adaptive.media.processor;
+package com.liferay.adaptive.media.web.internal.portlet;
+
+import com.liferay.adaptive.media.web.constants.AdaptiveMediaPortletKeys;
+import com.liferay.portal.kernel.portlet.ControlPanelEntry;
+import com.liferay.portal.kernel.portlet.OmniadminControlPanelEntry;
+
+import org.osgi.service.component.annotations.Component;
 
 /**
- * Locates the available {@link AdaptiveMediaAsyncProcessor}.
- *
- * @author Adolfo Pérez
+ * @author Alan Huang
  */
-public interface AdaptiveMediaAsyncProcessorLocator {
-
-	public <M> AdaptiveMediaAsyncProcessor<M, ?> locateForClass(Class<M> clazz);
-
-}
+@Component(
+	immediate = true,
+	property = {
+		"javax.portlet.name=" + AdaptiveMediaPortletKeys.ADAPTIVE_MEDIA
+	},
+	service = ControlPanelEntry.class
+)
+public class AdaptiveMediaControlPanelEntry extends
+	OmniadminControlPanelEntry {}
