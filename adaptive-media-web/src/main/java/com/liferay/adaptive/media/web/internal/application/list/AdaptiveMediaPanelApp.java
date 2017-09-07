@@ -44,11 +44,6 @@ public class AdaptiveMediaPanelApp extends BasePanelApp {
 	}
 
 	@Override
-	public boolean isShow(PermissionChecker permissionChecker, Group group) {
-		return permissionChecker.isCompanyAdmin();
-	}
-
-	@Override
 	@Reference(
 		target = "(javax.portlet.name=" + AdaptiveMediaPortletKeys.ADAPTIVE_MEDIA + ")",
 		unbind = "-"
